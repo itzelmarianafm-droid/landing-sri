@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sistema de Reprogramación Inconsciente para Empresarios — Dra. Estela Durán</title>
+<meta name="description" content="Descubre por qué nada de lo que has intentado te ha funcionado para resolver la ansiedad, el insomnio y el sobrepensamiento — y qué sí funciona. Método clínico de la Dra. Estela Durán, 100% online desde EE.UU."/>
+<meta property="og:title" content="¿Empresario exitoso pero agotado por dentro? — Dra. Estela Durán"/>
+<meta property="og:description" content="Aplica para una llamada estratégica gratuita. Diagnóstico clínico de ansiedad con el método SRI."/>
+<meta property="og:image" content="https://esteladuran.com/assets/Estela_Duran-DzLcwAzd.jpg"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- META PIXEL: insertar código de píxel -->
+<!-- <script>!function(f,b,e,v,n,t,s){...}('script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', 'TU_PIXEL_ID'); fbq('track', 'PageView'); fbq('track', 'ViewContent');</script> -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Centro de Reprogramación Inconsciente",
+  "founder": {
+    "@type": "Person",
+    "name": "Dra. Estela Durán Mena",
+    "jobTitle": "Doctora en Psicología Clínica, Hipnoterapeuta",
+    "description": "30+ años de experiencia. Formación directa con John Grinder, cocreador de la PNL."
+  },
+  "description": "Sistema de Reprogramación Inconsciente (SRI) para empresarios. Hipnosis clínica + PNL + neurofrecuencias. 100% online.",
+  "url": "https://esteladuran.com"
+}
+</script>
+
+<style>
+/* =====================================================================
+   DESIGN TOKENS — Alineados con esteladuran.com
+   ===================================================================== */
+:root {
+  /* Paleta principal */
+  --cream:         #FAF7F2;
+  --cream-warm:    #F3EDE3;
+  --cream-deep:    #E8E0D4;
+  --ink:           #1A1A1A;
+  --ink-soft:      #4A4A4A;
+  --ink-mute:      #7A7A7A;
+  --gold:          #8B6F4E;
+  --gold-light:    #A8926C;
+  --terracotta:    #5C3D2E;
+  --terracotta-hover: #4A3124;
+  --moss:          #4A5D3C;
+  --line:          rgba(26, 26, 26, 0.10);
+  --line-strong:   rgba(26, 26, 26, 0.18);
+
+  /* Tipografía */
+  --font-display:  'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --section-py:    clamp(64px, 10vw, 120px);
+  --container-max: 1080px;
+  --container-px:  clamp(20px, 5vw, 48px);
+
+  /* Shadows */
+  --shadow-sm:     0 1px 3px rgba(26, 26, 26, 0.06);
+  --shadow-md:     0 8px 32px rgba(26, 26, 26, 0.10);
+}
+
+/* =====================================================================
+   RESET & BASE
+   ===================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { display: block; max-width: 100%; height: auto; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+a { color: inherit; text-decoration: none; }
+
+/* =====================================================================
+   TYPOGRAPHY
+   ===================================================================== */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.display-sm { font-size: clamp(28px, 4vw, 42px); }
+.display-md { font-size: clamp(32px, 5vw, 52px); }
+.display-lg { font-size: clamp(38px, 6vw, 64px); }
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+.section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+.section-dark {
+  background: var(--ink);
+  color: var(--cream);
+}
+.section-warm {
+  background: var(--cream-warm);
+}
+
+/* =====================================================================
+   HEADER
+   ===================================================================== */
+.header {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 100;
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-logo {
+  height: 48px;
+  width: auto;
+}
+.header-tag {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px solid var(--line-strong);
+}
+
+/* =====================================================================
+   CTA BUTTON
+   ===================================================================== */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: var(--terracotta);
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background .2s, transform .15s;
+  text-align: center;
+}
+.cta:hover { background: var(--terracotta-hover); transform: translateY(-1px); }
+.cta:active { transform: translateY(0); }
+.cta-arrow { font-size: 18px; transition: transform .2s; }
+.cta:hover .cta-arrow { transform: translateX(3px); }
+
+.cta-ghost {
+  background: transparent;
+  color: var(--terracotta);
+  border: 1.5px solid var(--terracotta);
+}
+.cta-ghost:hover { background: var(--terracotta); color: var(--cream); }
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  padding: clamp(48px, 8vw, 96px) 0;
+  text-align: center;
+}
+.hero .label { margin-bottom: 20px; }
+.hero h1 { margin-bottom: 24px; color: var(--ink); }
+.hero h1 em {
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 400;
+}
+.hero-sub {
+  font-size: clamp(17px, 2vw, 20px);
+  color: var(--ink-soft);
+  max-width: 680px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.hero .cta { font-size: 15px; padding: 18px 42px; }
+
+/* VSL Container */
+.vsl-wrap {
+  max-width: 800px;
+  margin: 48px auto 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--ink);
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.vsl-placeholder {
+  color: var(--cream-deep);
+  font-size: 14px;
+  text-align: center;
+  padding: 24px;
+}
+
+/* =====================================================================
+   PROBLEMA
+   ===================================================================== */
+.problema-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+}
+@media (max-width: 768px) { .problema-grid { grid-template-columns: 1fr; gap: 32px; } }
+.problema-item {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--cream);
+}
+.problema-item h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.problema-item p { color: var(--ink-soft); font-size: 15px; }
+.quote-block {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.4;
+  color: var(--cream);
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 100px;
+  color: var(--gold);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+/* =====================================================================
+   POR QUÉ NADA HA FUNCIONADO
+   ===================================================================== */
+.reason-list {
+  list-style: none;
+  margin-top: 40px;
+}
+.reason-list li {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.reason-list li:last-child { border-bottom: none; }
+.reason-num {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1.2;
+}
+.reason-list h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.reason-list p { color: var(--ink-soft); font-size: 15px; }
+
+/* =====================================================================
+   DRA. ESTELA
+   ===================================================================== */
+.bio-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 48px;
+}
+@media (max-width: 768px) { .bio-grid { grid-template-columns: 1fr; } }
+.bio-img {
+  border-radius: 6px;
+  box-shadow: var(--shadow-md);
+  width: 100%;
+}
+.bio-creds {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.bio-cred {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.bio-cred::before {
+  content: '—';
+  color: var(--gold);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* =====================================================================
+   MÉTODO SRI
+   ===================================================================== */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+@media (max-width: 768px) { .pillars { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .pillars { grid-template-columns: 1fr; } }
+.pillar {
+  text-align: center;
+  padding: 32px 20px;
+  border: 1px solid rgba(250, 247, 242, 0.12);
+  border-radius: 6px;
+}
+.pillar-num {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.pillar h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: var(--cream);
+}
+.pillar p { font-size: 14px; color: rgba(250, 247, 242, 0.7); line-height: 1.55; }
+
+/* =====================================================================
+   PARA QUIÉN ES
+   ===================================================================== */
+.for-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin-top: 48px;
+}
+@media (max-width: 768px) { .for-grid { grid-template-columns: 1fr; } }
+.for-col h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+}
+.for-col.no h3 { border-bottom-color: var(--ink-mute); }
+.for-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.for-list li {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.for-icon { flex-shrink: 0; font-size: 16px; margin-top: 2px; }
+.for-col.yes .for-icon { color: var(--moss); }
+.for-col.no .for-icon { color: var(--ink-mute); }
+
+/* =====================================================================
+   PROCESO (3 PASOS)
+   ===================================================================== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+@media (max-width: 768px) { .steps { grid-template-columns: 1fr; } }
+.step {
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.step-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--gold);
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.step h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.step p { font-size: 14px; color: var(--ink-soft); }
+
+/* =====================================================================
+   TESTIMONIOS
+   ===================================================================== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+@media (max-width: 768px) { .testimonials-grid { grid-template-columns: 1fr; } }
+.testimonial {
+  padding: 28px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.testimonial-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--cream-deep);
+  overflow: hidden;
+}
+.testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.testimonial-name { font-weight: 600; font-size: 14px; }
+.testimonial-role { font-size: 12px; color: var(--ink-mute); }
+
+/* =====================================================================
+   FAQ
+   ===================================================================== */
+.faq-list { margin-top: 40px; max-width: 720px; margin-left: auto; margin-right: auto; }
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-q {
+  width: 100%;
+  text-align: left;
+  padding: 20px 0;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.faq-toggle {
+  font-size: 22px;
+  color: var(--gold);
+  transition: transform .25s;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease, padding .3s ease;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding-bottom: 20px;
+}
+
+/* =====================================================================
+   CTA FINAL
+   ===================================================================== */
+.cta-final {
+  text-align: center;
+  padding: clamp(64px, 10vw, 120px) 0;
+  background: var(--ink);
+  color: var(--cream);
+}
+.cta-final h2 { margin-bottom: 20px; }
+.cta-final p {
+  font-size: 18px;
+  color: rgba(250, 247, 242, 0.75);
+  max-width: 600px;
+  margin: 0 auto 36px;
+}
+.cta-final .cta {
+  font-size: 15px;
+  padding: 18px 48px;
+  background: var(--gold);
+}
+.cta-final .cta:hover { background: var(--gold-light); }
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+.footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.footer-logo { height: 36px; margin: 0 auto 16px; }
+.footer p { font-size: 13px; color: var(--ink-mute); margin-bottom: 4px; }
+.footer a { color: var(--gold); }
+.footer a:hover { text-decoration: underline; }
+
+/* =====================================================================
+   STICKY CTA (MOBILE)
+   ===================================================================== */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 12px 16px;
+  background: var(--cream);
+  border-top: 1px solid var(--line-strong);
+  box-shadow: 0 -4px 20px rgba(26, 26, 26, 0.10);
+}
+.sticky-cta .cta { width: 100%; font-size: 13px; padding: 14px 24px; }
+.sticky-cta.visible { display: block; }
+@media (min-width: 769px) { .sticky-cta { display: none !important; } }
+
+/* =====================================================================
+   UTILITIES & RESPONSIVE
+   ===================================================================== */
+.text-center { text-align: center; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mt-48 { margin-top: 48px; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.max-w-720 { max-width: 720px; }
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 24px auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media print {
+  .sticky-cta, .header { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="container">
+    <!-- LOGO: insertar SVG/PNG oficial desde esteladuran.com -->
+    <img src="https://esteladuran.com/assets/logo-light-bg-0DCRTu6L.png" alt="Centro de Reprogramación Inconsciente — Dra. Estela Durán" class="header-logo"/>
+    <span class="header-tag">100% Online desde EE.UU.</span>
+  </div>
+</header>
+
+<!-- ============ SECCIÓN 1: HERO + VSL ============ -->
+<section class="hero">
+  <div class="container">
+    <h1 class="display display-lg">
+      Si eres empresario o empresaria en Estados Unidos y estás sufriendo de ansiedad o ataques de pánico<br/>
+      <em>tienes que ver esto:</em>
+    </h1>
+    <a href="diagnostico.html" class="cta">
+      Aplicar para mi llamada estratégica <span class="cta-arrow">→</span>
+    </a>
+
+    <!-- VSL -->
+    <div class="vsl-wrap">
+      <!-- VSL EMBED: reemplazar con player de Vimeo/Wistia/YouTube -->
+      <div class="vsl-placeholder">
+        <p>▶ VIDEO · 12 minutos</p>
+        <p style="margin-top:8px;opacity:.6;font-size:13px;">Reemplazar con embed de Vimeo/Wistia/YouTube</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 2: EL PROBLEMA ============ -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="quote-block">
+      Sé que puedo más, pero no sé qué me está frenando. Tengo todo lo que dije que iba a tener — y me siento peor que cuando no tenía nada.
+    </div>
+    <div class="divider mt-48"></div>
+    <p class="text-center mt-24" style="max-width:680px;margin-left:auto;margin-right:auto;color:rgba(250,247,242,.72);font-size:16px;">
+      Si esa frase te suena familiar, no estás solo. Y no estás roto. Hay una razón clínica — medible, documentada, tratable — por la que un hombre con éxito financiero puede sentirse emocionalmente atrapado.
+    </p>
+  </div>
+</section>
+
+<section class="section section-warm">
+  <div class="container">
+    <div class="label">Lo que nadie te dice</div>
+    <h2 class="display display-sm mt-16">Los cuatro rostros de la ansiedad<br/>en hombres de alto rendimiento</h2>
+    <div class="problema-grid">
+      <div class="problema-item">
+        <h3>La mente que no para</h3>
+        <p>Analizar, planear, anticipar, controlar. Tu cerebro no deja de trabajar ni cuando decides "descansar". El insomnio es solo el síntoma visible de un sistema nervioso que no sabe desactivarse.</p>
+      </div>
+      <div class="problema-item">
+        <h3>El vacío inexplicable</h3>
+        <p>Lograste lo que te propusiste. La casa, el negocio, el ingreso. Y en lugar de plenitud sientes un hueco que no sabes nombrar. No es depresión clásica — es la desconexión entre lo que construiste y quién eres por dentro.</p>
+      </div>
+      <div class="problema-item">
+        <h3>La desconexión en casa</h3>
+        <p>Estás ahí pero no estás. Tu esposa lo siente. Tus hijos lo notan. Llegas cansado, irritable, lejano. No es que no los ames — es que no te queda nada para dar después de mantener la fachada todo el día.</p>
+      </div>
+      <div class="problema-item">
+        <h3>El miedo silencioso</h3>
+        <p>No lo dices en voz alta, pero está ahí: el miedo de que todo lo que construiste se derrumbe. De que un día tu cuerpo diga basta. De que estés a una mala racha de perderlo todo. Ese miedo consume más energía que todo tu equipo junto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 3: POR QUÉ NADA HA FUNCIONADO ============ -->
+<section class="section">
+  <div class="container">
+    <div class="label">La raíz del problema</div>
+    <h2 class="display display-sm mt-16 max-w-720">Por qué nada de lo que has intentado te ha funcionado — hasta ahora</h2>
+    <ul class="reason-list max-w-720">
+      <li>
+        <div class="reason-num">01</div>
+        <div>
+          <h3>La terapia tradicional trabaja en la superficie</h3>
+          <p>Hablar sobre tus problemas durante 50 minutos a la semana no reprograma los patrones inconscientes que te mantienen atrapado. Entender tu ansiedad no es lo mismo que resolverla.</p>
+        </div>
+      </li>
+      <li>
+        <div class="reason-num">02</div>
+        <div>
+          <h3>La medicación silencia, no resuelve</h3>
+          <p>Los ansiolíticos y antidepresivos regulan neurotransmisores — pero la raíz de tu ansiedad no está en la química: está en la programación inconsciente que llevas operando desde hace décadas.</p>
+        </div>
+      </li>
+      <li>
+        <div class="reason-num">03</div>
+        <div>
+          <h3>El coaching motivacional no alcanza</h3>
+          <p>Te enseñan a fijar metas, optimizar tu agenda y "mantener el mindset". Pero si tu sistema nervioso está en modo supervivencia, ningún ejercicio de journaling te va a desbloquear.</p>
+        </div>
+      </li>
+      <li>
+        <div class="reason-num">04</div>
+        <div>
+          <h3>Todo lo anterior trata los síntomas, no el origen</h3>
+          <p>El origen está en el inconsciente — en patrones, creencias y memorias emocionales que se instalaron mucho antes de que fueras el empresario que eres hoy. Y el inconsciente no se negocia: se reprograma.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 4: DRA. ESTELA ============ -->
+<section class="section section-warm">
+  <div class="container">
+    <div class="label">Quién lidera este proceso</div>
+    <h2 class="display display-sm mt-16">Dra. Estela Durán Mena</h2>
+    <div class="bio-grid">
+      <div>
+        <!-- IMAGEN ESTELA: insertar foto profesional -->
+        <img src="https://esteladuran.com/assets/Estela_Duran-DzLcwAzd.jpg" alt="Dra. Estela Durán Mena" class="bio-img"/>
+      </div>
+      <div>
+        <p style="font-size:17px;color:var(--ink-soft);margin-bottom:24px;">
+          Doctora en psicología clínica con más de 30 años de práctica. Fue formada directamente por John Grinder, cocreador de la Programación Neurolingüística, y es una de las hipnoterapeutas más experimentadas en el mundo hispano.
+        </p>
+        <p style="font-size:17px;color:var(--ink-soft);margin-bottom:24px;">
+          Fundadora del Centro de Reprogramación Inconsciente y creadora del SRI — Sistema de Reprogramación Inconsciente, un método clínico propio que combina cuatro tecnologías en cada sesión para producir cambios profundos, rápidos y duraderos.
+        </p>
+        <p style="font-size:17px;color:var(--ink-soft);">
+          Ha tratado a cientos de empresarios, ejecutivos y líderes en México y Estados Unidos. Su consulta es 100% online.
+        </p>
+        <div class="bio-creds">
+          <div class="bio-cred">Doctorado en Psicología Clínica</div>
+          <div class="bio-cred">Formación directa con John Grinder (cocreador PNL)</div>
+          <div class="bio-cred">30+ años de práctica clínica</div>
+          <div class="bio-cred">Creadora del método SRI</div>
+          <div class="bio-cred">Consulta 100% online desde cualquier parte del mundo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 5: MÉTODO SRI ============ -->
+<section class="section section-dark">
+  <div class="container text-center">
+    <div class="label">El método</div>
+    <h2 class="display display-sm mt-16">Sistema de Reprogramación Inconsciente (SRI)</h2>
+    <p class="mt-16 mx-auto max-w-720" style="color:rgba(250,247,242,.72);font-size:16px;">
+      El SRI no es terapia de conversación. Es un proceso clínico que accede directamente al inconsciente para reprogramar los patrones que generan tu ansiedad, tu sobrepensamiento y tu bloqueo emocional. Cada sesión integra cuatro tecnologías:
+    </p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">I</div>
+        <h3>Hipnosis Clínica Profunda</h3>
+        <p>Acceso directo al inconsciente en estado de trance controlado. No es la hipnosis de show — es una técnica clínica precisa y segura.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">II</div>
+        <h3>Programación Neurolingüística</h3>
+        <p>Reprogramación de patrones de lenguaje, pensamiento y conducta que operan en automático desde hace años.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">III</div>
+        <h3>Frecuencias Binaurales</h3>
+        <p>Estimulación auditiva que sincroniza los hemisferios cerebrales y profundiza el estado de receptividad del inconsciente.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">IV</div>
+        <h3>Neurofrecuencias</h3>
+        <p>Tecnología de vanguardia que optimiza la actividad neuronal durante la sesión para acelerar la reprogramación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 6: PARA QUIÉN ES / PARA QUIÉN NO ============ -->
+<section class="section">
+  <div class="container">
+    <div class="label text-center">Antes de aplicar</div>
+    <h2 class="display display-sm mt-16 text-center">¿Esto es para ti?</h2>
+    <div class="for-grid">
+      <div class="for-col yes">
+        <h3>Esto es para ti si...</h3>
+        <ul class="for-list">
+          <li><span class="for-icon">✓</span> Eres un empresario o líder que factura arriba de 500K USD al año</li>
+          <li><span class="for-icon">✓</span> Ya intentaste terapia, coaching o medicación y no te funcionó</li>
+          <li><span class="for-icon">✓</span> Sientes ansiedad, sobrepensamiento, insomnio o vacío emocional a pesar de tu éxito</li>
+          <li><span class="for-icon">✓</span> Estás dispuesto a invertir en una solución profesional de alto nivel</li>
+          <li><span class="for-icon">✓</span> Vives en Estados Unidos y buscas un proceso en español, 100% online</li>
+        </ul>
+      </div>
+      <div class="for-col no">
+        <h3>Esto no es para ti si...</h3>
+        <ul class="for-list">
+          <li><span class="for-icon">✗</span> Buscas una solución gratuita o de bajo costo</li>
+          <li><span class="for-icon">✗</span> No estás dispuesto a comprometerte con un proceso profesional</li>
+          <li><span class="for-icon">✗</span> Prefieres seguir manejando las cosas solo</li>
+          <li><span class="for-icon">✗</span> Buscas coaching motivacional o consejos genéricos</li>
+          <li><span class="for-icon">✗</span> No crees que un profesional clínico pueda ayudarte</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 7: CÓMO FUNCIONA EL PROCESO ============ -->
+<section class="section section-warm">
+  <div class="container text-center">
+    <div class="label">Tu camino</div>
+    <h2 class="display display-sm mt-16">Cómo funciona el proceso</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Llenas el formulario de diagnóstico</h3>
+        <p>Respondes 8 preguntas clínicas que nos ayudan a entender tu caso. Esto NO es un formulario de marketing — es un diagnóstico inicial que tu asesor revisará antes de tu llamada. Toma 4 minutos.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Tu llamada estratégica (gratis)</h3>
+        <p>Un asesor clínico te contacta en 24-48h para una conversación de 45 minutos. Te aplica un test para determinar el tipo y nivel de ansiedad que tienes. Saldrás con claridad, hayas o no decidido avanzar.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Tu proceso de reprogramación con la Dra. Durán</h3>
+        <p>Si tu caso encaja y decides avanzar, inicias un proceso personalizado de sesiones online con la Dra. Estela Durán, usando el método SRI. Los cambios empiezan a sentirse desde las primeras sesiones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 8: TESTIMONIOS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="label text-center">Historias reales</div>
+    <h2 class="display display-sm mt-16 text-center">Lo que dicen quienes ya pasaron<br/>por el proceso</h2>
+    <div class="testimonials-grid">
+      <!-- TESTIMONIOS: insertar producidos — estos son placeholders -->
+      <div class="testimonial">
+        <p class="testimonial-text">"Llevaba 3 años con un psicólogo y lo que logré en 4 sesiones con la Dra. Durán no se compara. Por primera vez en años duermo sin pastillas."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://esteladuran.com/assets/testimonial-gustav-M6yiMNpv.png" alt=""/>
+          </div>
+          <div>
+            <div class="testimonial-name">Gustavo R.</div>
+            <div class="testimonial-role">Contratista · Houston, TX</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"Mi esposa me dijo que parezco otra persona. No es que cambié — es que dejé de cargar algo que no era mío. Eso lo entendí en la segunda sesión."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://esteladuran.com/assets/testimonial-jennifer-B9YdlWGr.png" alt=""/>
+          </div>
+          <div>
+            <div class="testimonial-name">Jennifer M.</div>
+            <div class="testimonial-role">Real estate · Miami, FL</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"Yo no creía en estas cosas. Fui escéptico total. Pero el resultado habla solo: ya no tengo ataques de pánico, tomé decisiones que llevaba meses posponiendo, y mi negocio creció 40%."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://esteladuran.com/assets/testimonial-marielly-Iqwswer9.png" alt=""/>
+          </div>
+          <div>
+            <div class="testimonial-name">Marielly D.</div>
+            <div class="testimonial-role">Servicios profesionales · Phoenix, AZ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 9: FAQ ============ -->
+<section class="section section-warm">
+  <div class="container">
+    <div class="label text-center">Preguntas frecuentes</div>
+    <h2 class="display display-sm mt-16 text-center">Lo que probablemente estás pensando</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">¿De verdad funciona online? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Sí. La hipnosis clínica y la PNL funcionan igual de bien en formato remoto. La Dra. Durán lleva años atendiendo pacientes en todo el mundo vía videollamada. Lo único que necesitas es un espacio privado, audífonos y conexión estable.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿No es lo mismo que la hipnosis de show? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Absolutamente no. La hipnosis clínica es una técnica científica documentada, utilizada en hospitales y clínicas de todo el mundo. No pierdes el control, no haces cosas que no quieras. Estás consciente durante toda la sesión — tu mente simplemente entra en un estado de mayor receptividad.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Cuántas sesiones necesito? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Depende de tu caso. Algunos empresarios resuelven su tema principal en 4-6 sesiones. Otros eligen continuar un proceso más amplio. En tu llamada estratégica gratuita, tu asesor te dará una estimación basada en tu diagnóstico.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Cuánto cuesta? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">El costo se comparte únicamente durante la llamada estratégica, una vez que entendemos tu caso y podemos proponerte un plan personalizado. Este es un servicio clínico premium — la inversión refleja los 30+ años de experiencia de la Dra. Durán y la especificidad del método SRI.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿La llamada estratégica es de ventas? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">No. Es un espacio clínico. Tu asesor te aplica un test diagnóstico de ansiedad, revisa tu caso con base en las respuestas que diste en el formulario, y te da claridad sobre tu situación. Si al final deseas avanzar, se te explican las opciones. Si no, te vas con información valiosa sin compromiso.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Ya hice terapia y no me funcionó. ¿Por qué esto sería diferente? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Porque la terapia tradicional trabaja con tu mente consciente — y tu problema no está ahí. El SRI accede directamente al inconsciente, donde están instalados los patrones que generan tu ansiedad, tu sobrepensamiento y tus bloqueos. Es un abordaje fundamentalmente diferente.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 10: CTA FINAL ============ -->
+<section class="cta-final">
+  <div class="container">
+    <div class="label" style="color:var(--gold);">Da el primer paso</div>
+    <h2 class="display display-md mt-16">Tu mente te trajo hasta aquí.<br/><em style="color:var(--gold);font-style:italic;">Es hora de ir más profundo.</em></h2>
+    <p class="mt-24">
+      El diagnóstico es gratuito, confidencial, y toma 4 minutos.<br/>Un asesor clínico revisará tu caso y te contactará en 24-48 horas.
+    </p>
+    <a href="diagnostico.html" class="cta">
+      Iniciar mi diagnóstico (gratis, 4 minutos) <span class="cta-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <!-- LOGO: insertar SVG/PNG oficial -->
+    <img src="https://esteladuran.com/assets/logo-light-bg-0DCRTu6L.png" alt="Centro de Reprogramación Inconsciente" class="footer-logo"/>
+    <p>Centro de Reprogramación Inconsciente · Dra. Estela Durán Mena</p>
+    <p>Consulta 100% online · Atención en español desde cualquier parte del mundo</p>
+    <p class="mt-16"><a href="https://esteladuran.com" target="_blank" rel="noopener">esteladuran.com</a> · <a href="mailto:info@esteladuran.com">info@esteladuran.com</a></p>
+    <p class="mt-16" style="font-size:11px;">© 2024 Centro de Reprogramación Inconsciente. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- ============ STICKY CTA (MOBILE) ============ -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="diagnostico.html" class="cta">Aplicar ahora <span class="cta-arrow">→</span></a>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Sticky CTA on mobile — appears after scrolling past hero
+  var stickyCta = document.getElementById('stickyCta');
+  var heroEnd = document.querySelector('.hero').offsetTop + document.querySelector('.hero').offsetHeight;
+  window.addEventListener('scroll', function() {
+    if (window.innerWidth < 769) {
+      stickyCta.classList.toggle('visible', window.scrollY > heroEnd);
+    }
+  }, { passive: true });
+
+  // VSL video tracking placeholders
+  // fbq('trackCustom', 'VideoStart');
+  // fbq('trackCustom', 'VideoComplete50');
+})();
+</script>
+
+</body>
+</html>

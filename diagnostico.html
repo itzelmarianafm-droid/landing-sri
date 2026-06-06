@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Diagnóstico Inicial — Centro de Reprogramación Inconsciente</title>
+<meta name="description" content="Completa tu diagnóstico inicial en 4 minutos. 8 preguntas clínicas para entender tu caso antes de tu llamada estratégica."/>
+<meta property="og:title" content="Diagnóstico Inicial — Dra. Estela Durán"/>
+<meta property="og:description" content="8 preguntas. 4 minutos. Tu asesor revisará tus respuestas antes de tu llamada estratégica."/>
+<meta property="og:image" content="https://esteladuran.com/assets/Estela_Duran-DzLcwAzd.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- META PIXEL: insertar código de píxel -->
+<!-- fbq('track', 'InitiateCheckout'); -->
+
+<style>
+:root {
+  --cream: #FAF7F2; --cream-warm: #F3EDE3; --cream-deep: #E8E0D4;
+  --ink: #1A1A1A; --ink-soft: #4A4A4A; --ink-mute: #7A7A7A;
+  --gold: #8B6F4E; --gold-light: #A8926C;
+  --terracotta: #5C3D2E; --terracotta-hover: #4A3124;
+  --moss: #4A5D3C;
+  --line: rgba(26,26,26,0.10); --line-strong: rgba(26,26,26,0.18);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --shadow-md: 0 8px 32px rgba(26,26,26,0.10);
+  --red: #C0392B;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+img { display: block; max-width: 100%; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+
+/* HEADER */
+.header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-logo { height: 40px; }
+
+/* FORM SHELL */
+.form-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px 60px;
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* PROGRESS BAR */
+.progress-wrap { width: 100%; margin-bottom: 40px; }
+.progress-label {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--cream-deep);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: width .4s ease;
+}
+
+/* STEP */
+.step {
+  display: none;
+  width: 100%;
+  animation: slideIn .35s ease;
+}
+.step.active { display: block; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.step-question {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.step-sub {
+  font-size: 14px;
+  color: var(--ink-mute);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+/* INPUTS */
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: white;
+  border: 1px solid var(--line-strong);
+  border-radius: 5px;
+  transition: border-color .2s;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: -1px;
+  border-color: var(--gold);
+}
+.field textarea { resize: vertical; min-height: 100px; }
+.field .error-msg {
+  font-size: 12px;
+  color: var(--red);
+  margin-top: 4px;
+  display: none;
+}
+.field.has-error input, .field.has-error select {
+  border-color: var(--red);
+}
+.field.has-error .error-msg { display: block; }
+
+/* RADIO / CHECKBOX OPTIONS */
+.options-list { display: flex; flex-direction: column; gap: 8px; }
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: white;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 6px;
+  text-align: left;
+  font-size: 14px;
+  color: var(--ink);
+  transition: border-color .15s, background .15s;
+  cursor: pointer;
+  width: 100%;
+}
+.option-btn:hover { border-color: var(--gold); }
+.option-btn.selected {
+  border-color: var(--gold);
+  background: rgba(139, 111, 78, 0.06);
+}
+.option-dot {
+  width: 18px; height: 18px;
+  border: 2px solid var(--line-strong);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  transition: border-color .15s;
+}
+.option-btn.selected .option-dot {
+  border-color: var(--gold);
+}
+.option-btn.selected .option-dot::after {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+/* Checkbox style */
+.option-btn.checkbox .option-dot { border-radius: 3px; }
+.option-btn.checkbox.selected .option-dot::after {
+  border-radius: 1px;
+  width: 10px; height: 10px;
+}
+
+/* SLIDER (question 6) */
+.slider-wrap { margin-top: 8px; }
+.slider-nums {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+.slider-num {
+  flex: 1;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--font-display);
+  border: 1.5px solid var(--line-strong);
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  transition: all .15s;
+  color: var(--ink);
+}
+.slider-num:hover { border-color: var(--gold); }
+.slider-num.selected {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--ink-mute);
+}
+
+/* OTHER FIELD */
+.other-input {
+  margin-top: 8px;
+  display: none;
+}
+.other-input.show { display: block; }
+.other-input input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 5px;
+  background: white;
+  font-family: var(--font-body);
+  color: var(--ink);
+}
+
+/* NAV BUTTONS */
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  gap: 12px;
+}
+.btn-back {
+  font-size: 14px;
+  color: var(--ink-mute);
+  padding: 10px 16px;
+  transition: color .15s;
+}
+.btn-back:hover { color: var(--ink); }
+.btn-next {
+  padding: 14px 32px;
+  background: var(--terracotta);
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background .2s;
+  margin-left: auto;
+}
+.btn-next:hover { background: var(--terracotta-hover); }
+.btn-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-submit {
+  width: 100%;
+  padding: 16px 36px;
+  background: var(--terracotta);
+  color: var(--cream);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.btn-submit:hover { background: var(--terracotta-hover); }
+.btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.spinner {
+  display: none;
+  width: 18px; height: 18px;
+  border: 2px solid rgba(250,247,242,0.3);
+  border-top-color: var(--cream);
+  border-radius: 50%;
+  animation: spin .6s linear infinite;
+}
+.btn-submit.loading .spinner { display: inline-block; }
+.btn-submit.loading .btn-text { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* FOOTER */
+.form-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <img src="https://esteladuran.com/assets/logo-light-bg-0DCRTu6L.png" alt="Centro de Reprogramación Inconsciente" class="header-logo"/>
+</header>
+
+<div class="form-shell">
+  <div class="progress-wrap">
+    <div class="progress-label">Pregunta <span id="stepNum">1</span> de 8</div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:12.5%"></div></div>
+  </div>
+
+  <form id="diagForm" novalidate>
+
+    <!-- STEP 1: Datos de contacto -->
+    <div class="step active" data-step="1">
+      <h2 class="step-question">Cuéntanos quién eres.</h2>
+      <p class="step-sub">Tu información es 100% confidencial y solo será revisada por tu asesor clínico.</p>
+      <div class="field" data-required>
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" autocomplete="name" required/>
+        <div class="error-msg">Este campo es requerido.</div>
+      </div>
+      <div class="field" data-required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required/>
+        <div class="error-msg">Ingresa un email válido.</div>
+      </div>
+      <div class="field" data-required>
+        <label for="whatsapp">WhatsApp (con código de país)</label>
+        <input type="tel" id="whatsapp" name="whatsapp" placeholder="+1" autocomplete="tel" required/>
+        <div class="error-msg">Ingresa tu número de WhatsApp.</div>
+      </div>
+      <div class="field" data-required>
+        <label for="ciudad">Ciudad y estado donde vives en EE.UU.</label>
+        <input type="text" id="ciudad" name="ciudad" placeholder="Ej: Houston, TX" required/>
+        <div class="error-msg">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- STEP 2: Ocupación -->
+    <div class="step" data-step="2">
+      <h2 class="step-question">¿A qué te dedicas?</h2>
+      <p class="step-sub">Esto nos ayuda a entender tu contexto profesional.</p>
+      <div class="options-list" data-name="ocupacion" data-type="radio">
+        <button type="button" class="option-btn" data-value="Construcción / contratista"><span class="option-dot"></span>Construcción / contratista</button>
+        <button type="button" class="option-btn" data-value="Bienes raíces / real estate"><span class="option-dot"></span>Bienes raíces / real estate</button>
+        <button type="button" class="option-btn" data-value="Automotriz / transporte"><span class="option-dot"></span>Automotriz / transporte</button>
+        <button type="button" class="option-btn" data-value="Servicios profesionales"><span class="option-dot"></span>Servicios profesionales (consultoría, legal, contable)</button>
+        <button type="button" class="option-btn" data-value="Retail / comercio"><span class="option-dot"></span>Retail / comercio</button>
+        <button type="button" class="option-btn" data-value="Restaurantes / hospitalidad"><span class="option-dot"></span>Restaurantes / hospitalidad</button>
+        <button type="button" class="option-btn" data-value="Tecnología / digital"><span class="option-dot"></span>Tecnología / digital</button>
+        <button type="button" class="option-btn" data-value="Otro"><span class="option-dot"></span>Otro</button>
+      </div>
+      <div class="other-input" id="otherOcupacion">
+        <input type="text" placeholder="¿A qué te dedicas?" name="ocupacion_otro"/>
+      </div>
+    </div>
+
+    <!-- STEP 3: Facturación -->
+    <div class="step" data-step="3">
+      <h2 class="step-question">¿Cuál es la facturación anual aproximada de tu negocio?</h2>
+      <p class="step-sub">Esta información es 100% confidencial y nos ayuda a evaluar si nuestro proceso es la inversión adecuada para tu momento profesional.</p>
+      <div class="options-list" data-name="facturacion" data-type="radio">
+        <button type="button" class="option-btn" data-value="Menos de 250,000 USD"><span class="option-dot"></span>Menos de 250,000 USD</button>
+        <button type="button" class="option-btn" data-value="250,000 – 500,000 USD"><span class="option-dot"></span>250,000 – 500,000 USD</button>
+        <button type="button" class="option-btn" data-value="500,000 – 1 millón USD"><span class="option-dot"></span>500,000 – 1 millón USD</button>
+        <button type="button" class="option-btn" data-value="1 – 3 millones USD"><span class="option-dot"></span>1 – 3 millones USD</button>
+        <button type="button" class="option-btn" data-value="Más de 3 millones USD"><span class="option-dot"></span>Más de 3 millones USD</button>
+        <button type="button" class="option-btn" data-value="Prefiero no responder"><span class="option-dot"></span>Prefiero no responder</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Qué te pesa (multi-select) -->
+    <div class="step" data-step="4">
+      <h2 class="step-question">¿Qué es lo que más te está pesando hoy?</h2>
+      <p class="step-sub">Selecciona todas las que apliquen.</p>
+      <div class="options-list" data-name="sintomas" data-type="checkbox">
+        <button type="button" class="option-btn checkbox" data-value="Ansiedad / no logro dormir bien"><span class="option-dot"></span>Ansiedad / no logro dormir bien</button>
+        <button type="button" class="option-btn checkbox" data-value="Sobrepensamiento constante"><span class="option-dot"></span>Sobrepensamiento constante / mente acelerada</button>
+        <button type="button" class="option-btn checkbox" data-value="Problemas con mi pareja"><span class="option-dot"></span>Problemas con mi pareja / desconexión emocional</button>
+        <button type="button" class="option-btn checkbox" data-value="Vacío a pesar del éxito"><span class="option-dot"></span>Sensación de vacío a pesar del éxito</button>
+        <button type="button" class="option-btn checkbox" data-value="Miedo de perder lo construido"><span class="option-dot"></span>Miedo de perder lo que he construido</button>
+        <button type="button" class="option-btn checkbox" data-value="Síntomas físicos sin causa clara"><span class="option-dot"></span>Síntomas físicos sin causa médica clara</button>
+        <button type="button" class="option-btn checkbox" data-value="Atrapado o desmotivado en el negocio"><span class="option-dot"></span>Sensación de estar atrapado en el negocio</button>
+        <button type="button" class="option-btn checkbox" data-value="Uso de sustancias para desconectar"><span class="option-dot"></span>Uso de alcohol u otras sustancias para "apagar la cabeza"</button>
+        <button type="button" class="option-btn checkbox" data-value="Otro"><span class="option-dot"></span>Otro</button>
+      </div>
+      <div class="other-input" id="otherSintomas">
+        <input type="text" placeholder="Describe brevemente" name="sintomas_otro"/>
+      </div>
+    </div>
+
+    <!-- STEP 5: Qué has intentado (multi-select) -->
+    <div class="step" data-step="5">
+      <h2 class="step-question">¿Qué has intentado antes para resolverlo?</h2>
+      <p class="step-sub">No hay respuesta incorrecta — esto nos ayuda a entender tu recorrido.</p>
+      <div class="options-list" data-name="intentos" data-type="checkbox">
+        <button type="button" class="option-btn checkbox" data-value="Terapia psicológica tradicional"><span class="option-dot"></span>Terapia psicológica tradicional</button>
+        <button type="button" class="option-btn checkbox" data-value="Medicación psiquiátrica"><span class="option-dot"></span>Medicación psiquiátrica (antidepresivos, ansiolíticos)</button>
+        <button type="button" class="option-btn checkbox" data-value="Coaching ejecutivo o mentoría"><span class="option-dot"></span>Coaching ejecutivo o mentoría</button>
+        <button type="button" class="option-btn checkbox" data-value="Retiros, ayahuasca o plant medicine"><span class="option-dot"></span>Retiros, ayahuasca o plant medicine</button>
+        <button type="button" class="option-btn checkbox" data-value="Meditación, mindfulness, yoga"><span class="option-dot"></span>Meditación, mindfulness, yoga</button>
+        <button type="button" class="option-btn checkbox" data-value="Biohacking, suplementación, ejercicio"><span class="option-dot"></span>Biohacking, suplementación, ejercicio</button>
+        <button type="button" class="option-btn checkbox" data-value="Nada todavía"><span class="option-dot"></span>Nada todavía, este sería mi primer paso</button>
+        <button type="button" class="option-btn checkbox" data-value="Otro"><span class="option-dot"></span>Otro</button>
+      </div>
+      <div class="other-input" id="otherIntentos">
+        <input type="text" placeholder="¿Qué más has intentado?" name="intentos_otro"/>
+      </div>
+    </div>
+
+    <!-- STEP 6: Urgencia (1-10) -->
+    <div class="step" data-step="6">
+      <h2 class="step-question">En una escala del 1 al 10, ¿qué tan urgente es para ti resolver esto en los próximos 30 días?</h2>
+      <p class="step-sub">Sé honesto — 1 significa "no es urgente, exploro opciones", 10 significa "necesito empezar lo antes posible".</p>
+      <div class="slider-wrap">
+        <div class="slider-nums" data-name="urgencia">
+          <button type="button" class="slider-num" data-value="1">1</button>
+          <button type="button" class="slider-num" data-value="2">2</button>
+          <button type="button" class="slider-num" data-value="3">3</button>
+          <button type="button" class="slider-num" data-value="4">4</button>
+          <button type="button" class="slider-num" data-value="5">5</button>
+          <button type="button" class="slider-num" data-value="6">6</button>
+          <button type="button" class="slider-num" data-value="7">7</button>
+          <button type="button" class="slider-num" data-value="8">8</button>
+          <button type="button" class="slider-num" data-value="9">9</button>
+          <button type="button" class="slider-num" data-value="10">10</button>
+        </div>
+        <div class="slider-labels">
+          <span>Exploro opciones</span>
+          <span>Lo antes posible</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 7: Disposición a invertir -->
+    <div class="step" data-step="7">
+      <h2 class="step-question">¿Estás listo para invertir en una solución profesional de alto nivel si encaja con tu situación?</h2>
+      <p class="step-sub">Nuestro proceso es una inversión seria. Queremos asegurarnos de que estés en el momento correcto.</p>
+      <div class="options-list" data-name="inversion" data-type="radio">
+        <button type="button" class="option-btn" data-value="Sí, estoy listo"><span class="option-dot"></span>Sí, estoy listo para invertir si veo claridad en el proceso</button>
+        <button type="button" class="option-btn" data-value="Quiero saber más"><span class="option-dot"></span>Quiero saber más antes de decidir</button>
+        <button type="button" class="option-btn" data-value="Solo me informo"><span class="option-dot"></span>No por ahora, estoy solo informándome</button>
+      </div>
+    </div>
+
+    <!-- STEP 8: Notas adicionales -->
+    <div class="step" data-step="8">
+      <h2 class="step-question">¿Hay algo más que quieras que la Dra. Durán o tu asesor sepan antes de tu llamada?</h2>
+      <p class="step-sub">Opcional. Cualquier detalle sobre tu situación que consideres importante.</p>
+      <div class="field">
+        <textarea id="notas" name="notas" maxlength="500" placeholder="Escribe aquí si deseas agregar algo (máximo 500 caracteres)..."></textarea>
+      </div>
+      <div class="step-nav">
+        <button type="button" class="btn-back" onclick="goStep(-1)">← Atrás</button>
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-text">Enviar mi diagnóstico</span>
+          <span class="spinner"></span>
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- Nav buttons (injected per step via JS, except step 8 which has its own) -->
+  <div class="step-nav" id="stepNav" style="width:100%;">
+    <button type="button" class="btn-back" id="backBtn" onclick="goStep(-1)" style="visibility:hidden;">← Atrás</button>
+    <button type="button" class="btn-next" id="nextBtn" onclick="goStep(1)">Siguiente →</button>
+  </div>
+</div>
+
+<footer class="form-footer">
+  Centro de Reprogramación Inconsciente · Dra. Estela Durán Mena · 100% confidencial
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  var currentStep = 1;
+  var totalSteps = 8;
+  var formData = {};
+
+  // Restore from localStorage
+  try {
+    var saved = localStorage.getItem('sri_diagnostico');
+    if (saved) formData = JSON.parse(saved);
+  } catch(e) {}
+
+  function save() {
+    try { localStorage.setItem('sri_diagnostico', JSON.stringify(formData)); } catch(e) {}
+  }
+
+  function updateProgress() {
+    document.getElementById('stepNum').textContent = currentStep;
+    document.getElementById('progressFill').style.width = ((currentStep / totalSteps) * 100) + '%';
+  }
+
+  function showStep(n) {
+    document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+    var step = document.querySelector('[data-step="' + n + '"]');
+    if (step) step.classList.add('active');
+
+    var nav = document.getElementById('stepNav');
+    var backBtn = document.getElementById('backBtn');
+
+    if (n === 8) {
+      nav.style.display = 'none';
+    } else {
+      nav.style.display = 'flex';
+      backBtn.style.visibility = n === 1 ? 'hidden' : 'visible';
+    }
+
+    updateProgress();
+  }
+
+  // Collect data from current step
+  function collectStep(n) {
+    var step = document.querySelector('[data-step="' + n + '"]');
+
+    // Text inputs (step 1)
+    step.querySelectorAll('input[name], textarea[name], select[name]').forEach(function(el) {
+      if (el.closest('.other-input')) return; // skip "other" inputs, handled separately
+      formData[el.name] = el.value;
+    });
+
+    // Radio options
+    var radioList = step.querySelector('.options-list[data-type="radio"]');
+    if (radioList) {
+      var name = radioList.dataset.name;
+      var selected = radioList.querySelector('.option-btn.selected');
+      formData[name] = selected ? selected.dataset.value : '';
+      if (formData[name] === 'Otro') {
+        var otherInput = step.querySelector('.other-input input');
+        if (otherInput && otherInput.value) formData[name] = 'Otro: ' + otherInput.value;
+      }
+    }
+
+    // Checkbox options
+    var checkList = step.querySelector('.options-list[data-type="checkbox"]');
+    if (checkList) {
+      var name2 = checkList.dataset.name;
+      var vals = [];
+      checkList.querySelectorAll('.option-btn.selected').forEach(function(btn) {
+        vals.push(btn.dataset.value);
+      });
+      formData[name2] = vals;
+      if (vals.indexOf('Otro') > -1) {
+        var otherInput2 = step.querySelector('.other-input input');
+        if (otherInput2 && otherInput2.value) {
+          formData[name2] = vals.map(function(v) { return v === 'Otro' ? 'Otro: ' + otherInput2.value : v; });
+        }
+      }
+    }
+
+    // Slider (step 6)
+    var sliderWrap = step.querySelector('.slider-nums');
+    if (sliderWrap) {
+      var sel = sliderWrap.querySelector('.slider-num.selected');
+      formData[sliderWrap.dataset.name] = sel ? sel.dataset.value : '';
+    }
+
+    // Textarea (step 8)
+    var ta = step.querySelector('textarea[name]');
+    if (ta) formData[ta.name] = ta.value;
+
+    save();
+  }
+
+  // Validate current step
+  function validateStep(n) {
+    var step = document.querySelector('[data-step="' + n + '"]');
+    var valid = true;
+
+    // Required text fields (step 1)
+    step.querySelectorAll('.field[data-required]').forEach(function(field) {
+      var input = field.querySelector('input, select');
+      var val = input ? input.value.trim() : '';
+      if (!val) { field.classList.add('has-error'); valid = false; }
+      else if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) { field.classList.add('has-error'); valid = false; }
+      else { field.classList.remove('has-error'); }
+    });
+
+    // Radio must have selection
+    var radioList = step.querySelector('.options-list[data-type="radio"]');
+    if (radioList && !radioList.querySelector('.option-btn.selected')) valid = false;
+
+    // Checkbox must have at least one
+    var checkList = step.querySelector('.options-list[data-type="checkbox"]');
+    if (checkList && !checkList.querySelector('.option-btn.selected')) valid = false;
+
+    // Slider must have selection
+    var sliderWrap = step.querySelector('.slider-nums');
+    if (sliderWrap && !sliderWrap.querySelector('.slider-num.selected')) valid = false;
+
+    return valid;
+  }
+
+  window.goStep = function(dir) {
+    if (dir === 1) {
+      collectStep(currentStep);
+      if (!validateStep(currentStep)) return;
+    }
+    currentStep = Math.max(1, Math.min(totalSteps, currentStep + dir));
+    showStep(currentStep);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Option buttons (radio)
+  document.querySelectorAll('.options-list[data-type="radio"]').forEach(function(list) {
+    list.addEventListener('click', function(e) {
+      var btn = e.target.closest('.option-btn');
+      if (!btn) return;
+      list.querySelectorAll('.option-btn').forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      // Show "other" field
+      var otherEl = list.closest('.step').querySelector('.other-input');
+      if (otherEl) {
+        otherEl.classList.toggle('show', btn.dataset.value === 'Otro');
+      }
+    });
+  });
+
+  // Option buttons (checkbox)
+  document.querySelectorAll('.options-list[data-type="checkbox"]').forEach(function(list) {
+    list.addEventListener('click', function(e) {
+      var btn = e.target.closest('.option-btn');
+      if (!btn) return;
+      btn.classList.toggle('selected');
+      var otherEl = list.closest('.step').querySelector('.other-input');
+      if (otherEl) {
+        var otherBtn = list.querySelector('[data-value="Otro"]');
+        otherEl.classList.toggle('show', otherBtn && otherBtn.classList.contains('selected'));
+      }
+    });
+  });
+
+  // Slider numbers
+  document.querySelectorAll('.slider-num').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      btn.closest('.slider-nums').querySelectorAll('.slider-num').forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+    });
+  });
+
+  // Form submit
+  document.getElementById('diagForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    collectStep(8);
+
+    var submitBtn = document.getElementById('submitBtn');
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+
+    // Collect UTM params
+    var params = new URLSearchParams(window.location.search);
+    formData.utm_source = params.get('utm_source') || '';
+    formData.utm_medium = params.get('utm_medium') || '';
+    formData.utm_campaign = params.get('utm_campaign') || '';
+    formData.utm_content = params.get('utm_content') || '';
+    formData.timestamp = new Date().toISOString();
+
+    console.log('[Diagnóstico] Datos del formulario:', formData);
+
+    // <!-- WEBHOOK: insertar endpoint de procesamiento -->
+    // fetch('https://tu-webhook-url.com', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(formData)
+    // }).then(...)
+
+    // Meta Pixel events
+    // fbq('track', 'Lead');
+    // fbq('track', 'CompleteRegistration');
+
+    // Simulate send delay then redirect
+    setTimeout(function() {
+      localStorage.removeItem('sri_diagnostico');
+      // Store name for thank you page
+      try { localStorage.setItem('sri_nombre', formData.nombre || ''); } catch(ex) {}
+      window.location.href = 'gracias.html';
+    }, 1500);
+  });
+
+  // Restore saved values on load
+  function restoreFields() {
+    if (formData.nombre) document.getElementById('nombre').value = formData.nombre;
+    if (formData.email) document.getElementById('email').value = formData.email;
+    if (formData.whatsapp) document.getElementById('whatsapp').value = formData.whatsapp;
+    if (formData.ciudad) document.getElementById('ciudad').value = formData.ciudad;
+    if (formData.notas) document.getElementById('notas').value = formData.notas;
+  }
+  restoreFields();
+
+  showStep(1);
+})();
+</script>
+
+</body>
+</html>
