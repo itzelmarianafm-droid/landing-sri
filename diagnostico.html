@@ -699,24 +699,29 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
     console.log('[Diagnóstico] Datos del formulario:', formData);
 
-    // <!-- WEBHOOK: insertar endpoint de procesamiento -->
-    // fetch('https://tu-webhook-url.com', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(formData)
-    // }).then(...)
-
-    // Meta Pixel events
-    // fbq('track', 'Lead');
-    // fbq('track', 'CompleteRegistration');
-
-    // Simulate send delay then redirect
-    setTimeout(function() {
+    // Send to Consulta.ai API
+    fetch('https://consulta-ai-pi.vercel.app/api/form-submissions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      console.log('[Diagnóstico] Guardado:', data);
       localStorage.removeItem('sri_diagnostico');
-      // Store name for thank you page
+      try {
+        localStorage.setItem('sri_nombre', formData.nombre || '');
+        if (data.lead_id) localStorage.setItem('sri_lead_id', data.lead_id);
+      } catch(ex) {}
+      window.location.href = 'gracias.html';
+    })
+    .catch(function(err) {
+      console.error('[Diagnóstico] Error:', err);
+      // Redirect anyway so user isn't stuck
+      localStorage.removeItem('sri_diagnostico');
       try { localStorage.setItem('sri_nombre', formData.nombre || ''); } catch(ex) {}
       window.location.href = 'gracias.html';
-    }, 1500);
+    });
   });
 
   // Restore saved values on load
