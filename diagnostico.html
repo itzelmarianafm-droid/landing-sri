@@ -714,14 +714,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
         if (data.id) localStorage.setItem('sri_submission_id', data.id);
         if (data.lead_id) localStorage.setItem('sri_lead_id', data.lead_id);
       } catch(ex) {}
-      window.location.href = 'gracias.html';
+      window.location.href = 'https://calendar.app.google/mL9bc78PmEBfBMmn8';
     })
     .catch(function(err) {
       console.error('[Diagnóstico] Error:', err);
       // Redirect anyway so user isn't stuck
       localStorage.removeItem('sri_diagnostico');
       try { localStorage.setItem('sri_nombre', formData.nombre || ''); } catch(ex) {}
-      window.location.href = 'gracias.html';
+      window.location.href = 'https://calendar.app.google/mL9bc78PmEBfBMmn8';
     });
   });
 
