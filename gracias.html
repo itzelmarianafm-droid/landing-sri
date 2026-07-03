@@ -326,9 +326,9 @@ h1 {
   // Personalize with name from localStorage
   try {
     var nombre = localStorage.getItem('sri_nombre');
-    if (nombre) {
+    if (nombre && nombre.length > 0 && !nombre.includes('http')) {
       var msg = document.getElementById('confirmMsg');
-      msg.innerHTML = '<strong>' + nombre.split(' ')[0] + '</strong>, un asesor del Centro de Reprogramación Inconsciente revisará tus respuestas y se pondrá en contacto contigo en las próximas 24 a 48 horas hábiles para agendar tu llamada estratégica.';
+      msg.innerHTML = '<strong>' + nombre.split(' ')[0] + '</strong>, gracias por confiar en el Centro de Reprogramación Inconsciente. Un asesor de la Dra. Estela Durán revisará tus respuestas antes de tu llamada.';
       localStorage.removeItem('sri_nombre');
     }
   } catch(e) {}
