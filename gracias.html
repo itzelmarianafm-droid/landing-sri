@@ -265,23 +265,20 @@ h1 {
     </p>
 
     <!-- BOOKING CALENDAR -->
-    <div id="bookingSection" style="margin-top:40px;text-align:left;">
-      <h2 style="font-family:var(--font-display);font-size:28px;font-weight:500;text-align:center;margin-bottom:24px;">Elige el día y hora de tu llamada</h2>
-      <div id="calendarLoading" style="text-align:center;color:var(--ink-mute);font-size:14px;padding:32px 0;">Cargando horarios disponibles...</div>
-      <div id="calendarExternal" style="display:none;text-align:center;padding:32px 0;">
-        <a id="externalCalLink" href="#" target="_blank" rel="noopener" style="display:inline-block;background:var(--terracotta);color:var(--cream);padding:16px 40px;border-radius:6px;font-weight:600;font-size:16px;text-decoration:none;transition:background .2s;">Agendar mi llamada estratégica →</a>
-      </div>
-      <div id="calendarSlots" style="display:none;">
-        <div id="slotsGrid" style="display:grid;gap:12px;"></div>
-        <div id="bookingConfirm" style="display:none;margin-top:24px;text-align:center;">
-          <p id="selectedSlotText" style="font-family:var(--font-display);font-size:22px;font-weight:500;margin-bottom:16px;"></p>
-          <button id="confirmBtn" onclick="confirmBooking()" style="background:var(--terracotta);color:var(--cream);border:none;padding:16px 40px;border-radius:6px;font-weight:600;font-size:16px;cursor:pointer;transition:background .2s;">Confirmar mi cita →</button>
-        </div>
-      </div>
-      <div id="bookingDone" style="display:none;text-align:center;padding:24px;background:var(--moss);color:var(--cream);border-radius:8px;margin-top:24px;">
-        <p style="font-family:var(--font-display);font-size:24px;font-weight:500;">¡Tu cita ha sido confirmada!</p>
-        <p id="bookedDetails" style="margin-top:8px;font-size:15px;opacity:.85;"></p>
-      </div>
+    <div style="margin-top:40px;text-align:center;">
+      <h2 style="font-family:var(--font-display);font-size:28px;font-weight:500;margin-bottom:12px;">El siguiente paso es agendar tu llamada</h2>
+      <p style="color:var(--ink-soft);font-size:15px;max-width:480px;margin:0 auto 28px;">Elige el día y la hora que mejor te funcione. La llamada es de 45 minutos, gratuita y 100% confidencial.</p>
+      <a
+        href="https://calendar.app.google/mL9bc78PmEBfBMmn8"
+        target="_blank"
+        rel="noopener"
+        style="display:inline-block;background:var(--terracotta);color:var(--cream);padding:18px 48px;border-radius:6px;font-weight:600;font-size:17px;text-decoration:none;transition:background .2s;letter-spacing:0.01em;"
+        onmouseover="this.style.background='var(--terracotta-hover)'"
+        onmouseout="this.style.background='var(--terracotta)'"
+      >
+        Agendar mi llamada estratégica →
+      </a>
+      <p style="color:var(--ink-mute);font-size:13px;margin-top:16px;">Se abre Google Calendar · Elige el horario que prefieras</p>
     </div>
 
     <!-- QUÉ PASA AHORA -->
@@ -357,118 +354,7 @@ h1 {
   // fbq('track', 'CompleteRegistration');
   // fbq('trackCustom', 'DiagnosticoCompletado', { value: 1 });
 
-  var API_BASE = 'https://consulta-ai-qv3f.vercel.app';
-  var leadId = null;
-  var selectedDatetime = null;
-
-  try { leadId = localStorage.getItem('sri_lead_id'); } catch(e) {}
-
-  // Load calendar
-  fetch(API_BASE + '/api/calendar-slots')
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      document.getElementById('calendarLoading').style.display = 'none';
-
-      if (data.mode === 'external' && data.external_url) {
-        document.getElementById('calendarExternal').style.display = 'block';
-        document.getElementById('externalCalLink').href = data.external_url;
-        return;
-      }
-
-      if (!data.available || data.available.length === 0) {
-        document.getElementById('calendarLoading').style.display = 'block';
-        document.getElementById('calendarLoading').textContent = 'No hay horarios disponibles en este momento. Te contactaremos para agendar.';
-        return;
-      }
-
-      document.getElementById('calendarSlots').style.display = 'block';
-      var grid = document.getElementById('slotsGrid');
-
-      // Group by date
-      var byDate = {};
-      data.available.forEach(function(slot) {
-        if (!byDate[slot.date]) byDate[slot.date] = [];
-        byDate[slot.date].push(slot);
-      });
-
-      Object.keys(byDate).forEach(function(date) {
-        var dayDiv = document.createElement('div');
-        dayDiv.style.cssText = 'background:var(--cream-warm);border:1px solid var(--line);border-radius:6px;padding:20px;';
-        dayDiv.innerHTML = '<div style="font-family:var(--font-display);font-size:18px;font-weight:500;margin-bottom:12px;text-transform:capitalize;">' + date + '</div>';
-
-        var timesDiv = document.createElement('div');
-        timesDiv.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;';
-
-        byDate[date].forEach(function(slot) {
-          var btn = document.createElement('button');
-          btn.textContent = slot.time;
-          btn.style.cssText = 'padding:10px 18px;border:1.5px solid var(--line-strong);border-radius:4px;font-size:14px;font-weight:500;cursor:pointer;background:var(--cream);color:var(--ink);transition:all .15s;';
-          btn.onmouseover = function() { btn.style.borderColor = 'var(--gold)'; btn.style.color = 'var(--gold)'; };
-          btn.onmouseout = function() { if (selectedDatetime !== slot.datetime) { btn.style.borderColor = 'var(--line-strong)'; btn.style.color = 'var(--ink)'; } };
-          btn.onclick = function() {
-            // Reset all buttons
-            grid.querySelectorAll('button').forEach(function(b) { b.style.borderColor = 'var(--line-strong)'; b.style.color = 'var(--ink)'; b.style.background = 'var(--cream)'; });
-            // Highlight selected
-            btn.style.borderColor = 'var(--terracotta)'; btn.style.color = 'var(--cream)'; btn.style.background = 'var(--terracotta)';
-            selectedDatetime = slot.datetime;
-            document.getElementById('selectedSlotText').textContent = date + ' a las ' + slot.time;
-            document.getElementById('bookingConfirm').style.display = 'block';
-          };
-          timesDiv.appendChild(btn);
-        });
-
-        dayDiv.appendChild(timesDiv);
-        grid.appendChild(dayDiv);
-      });
-    })
-    .catch(function(err) {
-      console.error('[Calendar] Error:', err);
-      document.getElementById('calendarLoading').textContent = 'No se pudo cargar el calendario. Te contactaremos por WhatsApp.';
-    });
-
-  // Confirm booking
-  window.confirmBooking = function() {
-    if (!selectedDatetime || !leadId) {
-      if (!leadId) {
-        document.getElementById('bookingDone').style.display = 'block';
-        document.getElementById('bookingDone').style.background = 'var(--gold)';
-        document.getElementById('bookedDetails').textContent = 'Te contactaremos por WhatsApp para confirmar tu cita.';
-        document.getElementById('bookingConfirm').style.display = 'none';
-        return;
-      }
-      return;
-    }
-
-    var btn = document.getElementById('confirmBtn');
-    btn.textContent = 'Confirmando...';
-    btn.disabled = true;
-
-    fetch(API_BASE + '/api/book-appointment', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ lead_id: leadId, datetime: selectedDatetime, service: 'Llamada estratégica' })
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (data.success) {
-        document.getElementById('calendarSlots').style.display = 'none';
-        document.getElementById('bookingConfirm').style.display = 'none';
-        document.getElementById('bookingDone').style.display = 'block';
-        var d = new Date(selectedDatetime);
-        document.getElementById('bookedDetails').textContent = d.toLocaleDateString('es-MX', { weekday: 'long', day: 'numeric', month: 'long' }) + ' a las ' + d.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
-        try { localStorage.removeItem('sri_lead_id'); } catch(e) {}
-      } else {
-        btn.textContent = 'Confirmar mi cita →';
-        btn.disabled = false;
-        alert(data.error || 'Error al agendar. Intenta con otro horario.');
-      }
-    })
-    .catch(function() {
-      btn.textContent = 'Confirmar mi cita →';
-      btn.disabled = false;
-      alert('Error de conexión. Intenta de nuevo.');
-    });
-  };
+  try { localStorage.removeItem('sri_lead_id'); } catch(e) {}
 
 })();
 </script>
