@@ -376,9 +376,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="error-msg">Ingresa un email válido.</div>
       </div>
       <div class="field" data-required>
-        <label for="whatsapp">WhatsApp (con código de país)</label>
-        <input type="tel" id="whatsapp" name="whatsapp" placeholder="+1" autocomplete="tel" required/>
-        <div class="error-msg">Ingresa tu número de WhatsApp.</div>
+        <label for="whatsapp">WhatsApp (incluye lada de tu país)</label>
+        <div style="display:flex;gap:8px;align-items:stretch;">
+          <select id="whatsapp-lada" style="padding:12px;border:1.5px solid var(--line-strong);border-radius:4px;font-size:15px;background:var(--cream-warm);color:var(--ink);min-width:120px;">
+            <option value="+1">🇺🇸 +1 (EE.UU.)</option>
+            <option value="+52">🇲🇽 +52 (México)</option>
+            <option value="+57">🇨🇴 +57 (Colombia)</option>
+            <option value="+34">🇪🇸 +34 (España)</option>
+            <option value="+54">🇦🇷 +54 (Argentina)</option>
+            <option value="+56">🇨🇱 +56 (Chile)</option>
+            <option value="+51">🇵🇪 +51 (Perú)</option>
+            <option value="+593">🇪🇨 +593 (Ecuador)</option>
+          </select>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 8331234567" autocomplete="tel" required style="flex:1;"/>
+        </div>
+        <div class="error-msg">Ingresa tu número de WhatsApp (solo los dígitos, sin lada).</div>
+        <div style="font-size:12px;color:var(--ink-mute);margin-top:4px;">Selecciona tu país y escribe solo los dígitos de tu número.</div>
       </div>
       <div class="field" data-required>
         <label for="ciudad">Ciudad y estado donde vives en EE.UU.</label>
@@ -697,6 +710,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.getElementById('diagForm').addEventListener('submit', function(e) {
     e.preventDefault();
     collectStep(8);
+
+    // Combine lada + phone number
+    var lada = document.getElementById('whatsapp-lada').value;
+    var rawPhone = (formData.whatsapp || '').replace(/[^0-9]/g, '');
+    formData.whatsapp = lada + rawPhone;
 
     var submitBtn = document.getElementById('submitBtn');
     submitBtn.classList.add('loading');
