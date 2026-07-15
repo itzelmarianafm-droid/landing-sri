@@ -165,6 +165,37 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 .field.has-error .error-msg { display: block; }
 
+/* WhatsApp phone field layout */
+.whatsapp-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+.whatsapp-row select {
+  width: auto !important;
+  min-width: 150px;
+  max-width: 180px;
+  flex-shrink: 0;
+  padding: 12px 10px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 4px;
+  font-size: 14px;
+  background: var(--cream-warm);
+  color: var(--ink);
+}
+.whatsapp-row input {
+  flex: 1 1 auto !important;
+  width: auto !important;
+  min-width: 0;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 4px;
+  background: white;
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
 /* RADIO / CHECKBOX OPTIONS */
 .options-list { display: flex; flex-direction: column; gap: 8px; }
 .option-btn {
@@ -377,8 +408,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="field" data-required>
         <label for="whatsapp">WhatsApp (incluye lada de tu país)</label>
-        <div style="display:flex;gap:8px;align-items:stretch;">
-          <select id="whatsapp-lada" style="padding:12px;border:1.5px solid var(--line-strong);border-radius:4px;font-size:15px;background:var(--cream-warm);color:var(--ink);min-width:120px;">
+        <div class="whatsapp-row">
+          <select id="whatsapp-lada">
             <option value="+1">🇺🇸 +1 (EE.UU.)</option>
             <option value="+52">🇲🇽 +52 (México)</option>
             <option value="+57">🇨🇴 +57 (Colombia)</option>
@@ -388,7 +419,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <option value="+51">🇵🇪 +51 (Perú)</option>
             <option value="+593">🇪🇨 +593 (Ecuador)</option>
           </select>
-          <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 8331234567" autocomplete="tel" required style="flex:1;"/>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 8331234567" autocomplete="tel" required/>
         </div>
         <div class="error-msg">Ingresa tu número de WhatsApp (solo los dígitos, sin lada).</div>
         <div style="font-size:12px;color:var(--ink-mute);margin-top:4px;">Selecciona tu país y escribe solo los dígitos de tu número.</div>
@@ -637,10 +668,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     // Required text fields (step 1)
     step.querySelectorAll('.field[data-required]').forEach(function(field) {
-      var input = field.querySelector('input, select');
+      var input = field.querySelector('input:not(#whatsapp-lada), select:not(#whatsapp-lada)');
+      if (!input) return;
+      // For the WhatsApp field, look for the tel input specifically
+      if (field.querySelector('#whatsapp')) {
+        input = field.querySelector('#whatsapp');
+      }
       var val = input ? input.value.trim() : '';
       if (!val) { field.classList.add('has-error'); valid = false; }
       else if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) { field.classList.add('has-error'); valid = false; }
+      else if (input.id === 'whatsapp' && val.replace(/[^0-9]/g, '').length < 7) { field.classList.add('has-error'); valid = false; }
       else { field.classList.remove('has-error'); }
     });
 
